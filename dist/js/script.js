@@ -10,7 +10,25 @@ closeElem.addEventListener('click', () => {
     menu.classList.remove('active');
 })
 
+const counters = document.querySelectorAll('.usage__procent'),
+    lines = document.querySelectorAll('.usage__scale-orange');
 
+counters.forEach((item, i) => {
+    lines[i].style.width = item.innerHTML;
+});
+
+const smoothLinks = document.querySelectorAll("a[href^='#']");
+for (let smoothLink of smoothLinks) {
+    smoothLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        const id = smoothLink.getAttribute("href");
+
+        document.querySelector(id).scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+};
 
 
 
